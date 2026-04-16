@@ -1,0 +1,492 @@
+// weak_LTP_modification.ka
+// Calcium dependent cAMP activation
+
+%mod: Calcium_Levels > 10 do $UPDATE cAMP_synth 20; repeat [true]
+%mod: Calcium_Levels < 5 do $UPDATE cAMP_synth 0.5; repeat [true]
+
+// =====================================================
+// Baseline stimulation from original Modification.ka
+// Continuous calcium and glutamate input
+// =====================================================
+
+%mod: alarm 0.01 [true] do $ADD 10*CaGlu Ca(); repeat [true]
+
+%mod: 'Glu_Trigger' > 0 do $ADD 5000 Glutamate();
+%mod: 'Glu_Trigger' = 0 do $DEL |Glutamate()| Glutamate(); repeat [true]
+
+// =====================================================
+// weakLTP Burst
+// 3 trains total
+// Each train = 25 bursts
+// Each burst = 4 pulses at 100 Hz
+// Inter-burst interval = 5000 ms = 5 s
+// Train-to-train gap = 10 s
+// Train 1 starts at 1.01 s
+// Pulse strength changed to 60
+// =====================================================
+
+// ---------------------
+// Train 1
+// ---------------------
+
+// Burst 1
+%mod: alarm 1.01 do $ADD 60 Ca();
+%mod: alarm 1.02 do $ADD 60 Ca();
+%mod: alarm 1.03 do $ADD 60 Ca();
+%mod: alarm 1.04 do $ADD 60 Ca();
+
+// Burst 2
+%mod: alarm 6.01 do $ADD 60 Ca();
+%mod: alarm 6.02 do $ADD 60 Ca();
+%mod: alarm 6.03 do $ADD 60 Ca();
+%mod: alarm 6.04 do $ADD 60 Ca();
+
+// Burst 3
+%mod: alarm 11.01 do $ADD 60 Ca();
+%mod: alarm 11.02 do $ADD 60 Ca();
+%mod: alarm 11.03 do $ADD 60 Ca();
+%mod: alarm 11.04 do $ADD 60 Ca();
+
+// Burst 4
+%mod: alarm 16.01 do $ADD 60 Ca();
+%mod: alarm 16.02 do $ADD 60 Ca();
+%mod: alarm 16.03 do $ADD 60 Ca();
+%mod: alarm 16.04 do $ADD 60 Ca();
+
+// Burst 5
+%mod: alarm 21.01 do $ADD 60 Ca();
+%mod: alarm 21.02 do $ADD 60 Ca();
+%mod: alarm 21.03 do $ADD 60 Ca();
+%mod: alarm 21.04 do $ADD 60 Ca();
+
+// Burst 6
+%mod: alarm 26.01 do $ADD 60 Ca();
+%mod: alarm 26.02 do $ADD 60 Ca();
+%mod: alarm 26.03 do $ADD 60 Ca();
+%mod: alarm 26.04 do $ADD 60 Ca();
+
+// Burst 7
+%mod: alarm 31.01 do $ADD 60 Ca();
+%mod: alarm 31.02 do $ADD 60 Ca();
+%mod: alarm 31.03 do $ADD 60 Ca();
+%mod: alarm 31.04 do $ADD 60 Ca();
+
+// Burst 8
+%mod: alarm 36.01 do $ADD 60 Ca();
+%mod: alarm 36.02 do $ADD 60 Ca();
+%mod: alarm 36.03 do $ADD 60 Ca();
+%mod: alarm 36.04 do $ADD 60 Ca();
+
+// Burst 9
+%mod: alarm 41.01 do $ADD 60 Ca();
+%mod: alarm 41.02 do $ADD 60 Ca();
+%mod: alarm 41.03 do $ADD 60 Ca();
+%mod: alarm 41.04 do $ADD 60 Ca();
+
+// Burst 10
+%mod: alarm 46.01 do $ADD 60 Ca();
+%mod: alarm 46.02 do $ADD 60 Ca();
+%mod: alarm 46.03 do $ADD 60 Ca();
+%mod: alarm 46.04 do $ADD 60 Ca();
+
+// Burst 11
+%mod: alarm 51.01 do $ADD 60 Ca();
+%mod: alarm 51.02 do $ADD 60 Ca();
+%mod: alarm 51.03 do $ADD 60 Ca();
+%mod: alarm 51.04 do $ADD 60 Ca();
+
+// Burst 12
+%mod: alarm 56.01 do $ADD 60 Ca();
+%mod: alarm 56.02 do $ADD 60 Ca();
+%mod: alarm 56.03 do $ADD 60 Ca();
+%mod: alarm 56.04 do $ADD 60 Ca();
+
+// Burst 13
+%mod: alarm 61.01 do $ADD 60 Ca();
+%mod: alarm 61.02 do $ADD 60 Ca();
+%mod: alarm 61.03 do $ADD 60 Ca();
+%mod: alarm 61.04 do $ADD 60 Ca();
+
+// Burst 14
+%mod: alarm 66.01 do $ADD 60 Ca();
+%mod: alarm 66.02 do $ADD 60 Ca();
+%mod: alarm 66.03 do $ADD 60 Ca();
+%mod: alarm 66.04 do $ADD 60 Ca();
+
+// Burst 15
+%mod: alarm 71.01 do $ADD 60 Ca();
+%mod: alarm 71.02 do $ADD 60 Ca();
+%mod: alarm 71.03 do $ADD 60 Ca();
+%mod: alarm 71.04 do $ADD 60 Ca();
+
+// Burst 16
+%mod: alarm 76.01 do $ADD 60 Ca();
+%mod: alarm 76.02 do $ADD 60 Ca();
+%mod: alarm 76.03 do $ADD 60 Ca();
+%mod: alarm 76.04 do $ADD 60 Ca();
+
+// Burst 17
+%mod: alarm 81.01 do $ADD 60 Ca();
+%mod: alarm 81.02 do $ADD 60 Ca();
+%mod: alarm 81.03 do $ADD 60 Ca();
+%mod: alarm 81.04 do $ADD 60 Ca();
+
+// Burst 18
+%mod: alarm 86.01 do $ADD 60 Ca();
+%mod: alarm 86.02 do $ADD 60 Ca();
+%mod: alarm 86.03 do $ADD 60 Ca();
+%mod: alarm 86.04 do $ADD 60 Ca();
+
+// Burst 19
+%mod: alarm 91.01 do $ADD 60 Ca();
+%mod: alarm 91.02 do $ADD 60 Ca();
+%mod: alarm 91.03 do $ADD 60 Ca();
+%mod: alarm 91.04 do $ADD 60 Ca();
+
+// Burst 20
+%mod: alarm 96.01 do $ADD 60 Ca();
+%mod: alarm 96.02 do $ADD 60 Ca();
+%mod: alarm 96.03 do $ADD 60 Ca();
+%mod: alarm 96.04 do $ADD 60 Ca();
+
+// Burst 21
+%mod: alarm 101.01 do $ADD 60 Ca();
+%mod: alarm 101.02 do $ADD 60 Ca();
+%mod: alarm 101.03 do $ADD 60 Ca();
+%mod: alarm 101.04 do $ADD 60 Ca();
+
+// Burst 22
+%mod: alarm 106.01 do $ADD 60 Ca();
+%mod: alarm 106.02 do $ADD 60 Ca();
+%mod: alarm 106.03 do $ADD 60 Ca();
+%mod: alarm 106.04 do $ADD 60 Ca();
+
+// Burst 23
+%mod: alarm 111.01 do $ADD 60 Ca();
+%mod: alarm 111.02 do $ADD 60 Ca();
+%mod: alarm 111.03 do $ADD 60 Ca();
+%mod: alarm 111.04 do $ADD 60 Ca();
+
+// Burst 24
+%mod: alarm 116.01 do $ADD 60 Ca();
+%mod: alarm 116.02 do $ADD 60 Ca();
+%mod: alarm 116.03 do $ADD 60 Ca();
+%mod: alarm 116.04 do $ADD 60 Ca();
+
+// Burst 25
+%mod: alarm 121.01 do $ADD 60 Ca();
+%mod: alarm 121.02 do $ADD 60 Ca();
+%mod: alarm 121.03 do $ADD 60 Ca();
+%mod: alarm 121.04 do $ADD 60 Ca();
+
+
+// ---------------------
+// Train 2
+// starts 10 s after Train 1 ends
+// ---------------------
+
+// Burst 1
+%mod: alarm 131.04 do $ADD 60 Ca();
+%mod: alarm 131.05 do $ADD 60 Ca();
+%mod: alarm 131.06 do $ADD 60 Ca();
+%mod: alarm 131.07 do $ADD 60 Ca();
+
+// Burst 2
+%mod: alarm 136.04 do $ADD 60 Ca();
+%mod: alarm 136.05 do $ADD 60 Ca();
+%mod: alarm 136.06 do $ADD 60 Ca();
+%mod: alarm 136.07 do $ADD 60 Ca();
+
+// Burst 3
+%mod: alarm 141.04 do $ADD 60 Ca();
+%mod: alarm 141.05 do $ADD 60 Ca();
+%mod: alarm 141.06 do $ADD 60 Ca();
+%mod: alarm 141.07 do $ADD 60 Ca();
+
+// Burst 4
+%mod: alarm 146.04 do $ADD 60 Ca();
+%mod: alarm 146.05 do $ADD 60 Ca();
+%mod: alarm 146.06 do $ADD 60 Ca();
+%mod: alarm 146.07 do $ADD 60 Ca();
+
+// Burst 5
+%mod: alarm 151.04 do $ADD 60 Ca();
+%mod: alarm 151.05 do $ADD 60 Ca();
+%mod: alarm 151.06 do $ADD 60 Ca();
+%mod: alarm 151.07 do $ADD 60 Ca();
+
+// Burst 6
+%mod: alarm 156.04 do $ADD 60 Ca();
+%mod: alarm 156.05 do $ADD 60 Ca();
+%mod: alarm 156.06 do $ADD 60 Ca();
+%mod: alarm 156.07 do $ADD 60 Ca();
+
+// Burst 7
+%mod: alarm 161.04 do $ADD 60 Ca();
+%mod: alarm 161.05 do $ADD 60 Ca();
+%mod: alarm 161.06 do $ADD 60 Ca();
+%mod: alarm 161.07 do $ADD 60 Ca();
+
+// Burst 8
+%mod: alarm 166.04 do $ADD 60 Ca();
+%mod: alarm 166.05 do $ADD 60 Ca();
+%mod: alarm 166.06 do $ADD 60 Ca();
+%mod: alarm 166.07 do $ADD 60 Ca();
+
+// Burst 9
+%mod: alarm 171.04 do $ADD 60 Ca();
+%mod: alarm 171.05 do $ADD 60 Ca();
+%mod: alarm 171.06 do $ADD 60 Ca();
+%mod: alarm 171.07 do $ADD 60 Ca();
+
+// Burst 10
+%mod: alarm 176.04 do $ADD 60 Ca();
+%mod: alarm 176.05 do $ADD 60 Ca();
+%mod: alarm 176.06 do $ADD 60 Ca();
+%mod: alarm 176.07 do $ADD 60 Ca();
+
+// Burst 11
+%mod: alarm 181.04 do $ADD 60 Ca();
+%mod: alarm 181.05 do $ADD 60 Ca();
+%mod: alarm 181.06 do $ADD 60 Ca();
+%mod: alarm 181.07 do $ADD 60 Ca();
+
+// Burst 12
+%mod: alarm 186.04 do $ADD 60 Ca();
+%mod: alarm 186.05 do $ADD 60 Ca();
+%mod: alarm 186.06 do $ADD 60 Ca();
+%mod: alarm 186.07 do $ADD 60 Ca();
+
+// Burst 13
+%mod: alarm 191.04 do $ADD 60 Ca();
+%mod: alarm 191.05 do $ADD 60 Ca();
+%mod: alarm 191.06 do $ADD 60 Ca();
+%mod: alarm 191.07 do $ADD 60 Ca();
+
+// Burst 14
+%mod: alarm 196.04 do $ADD 60 Ca();
+%mod: alarm 196.05 do $ADD 60 Ca();
+%mod: alarm 196.06 do $ADD 60 Ca();
+%mod: alarm 196.07 do $ADD 60 Ca();
+
+// Burst 15
+%mod: alarm 201.04 do $ADD 60 Ca();
+%mod: alarm 201.05 do $ADD 60 Ca();
+%mod: alarm 201.06 do $ADD 60 Ca();
+%mod: alarm 201.07 do $ADD 60 Ca();
+
+// Burst 16
+%mod: alarm 206.04 do $ADD 60 Ca();
+%mod: alarm 206.05 do $ADD 60 Ca();
+%mod: alarm 206.06 do $ADD 60 Ca();
+%mod: alarm 206.07 do $ADD 60 Ca();
+
+// Burst 17
+%mod: alarm 211.04 do $ADD 60 Ca();
+%mod: alarm 211.05 do $ADD 60 Ca();
+%mod: alarm 211.06 do $ADD 60 Ca();
+%mod: alarm 211.07 do $ADD 60 Ca();
+
+// Burst 18
+%mod: alarm 216.04 do $ADD 60 Ca();
+%mod: alarm 216.05 do $ADD 60 Ca();
+%mod: alarm 216.06 do $ADD 60 Ca();
+%mod: alarm 216.07 do $ADD 60 Ca();
+
+// Burst 19
+%mod: alarm 221.04 do $ADD 60 Ca();
+%mod: alarm 221.05 do $ADD 60 Ca();
+%mod: alarm 221.06 do $ADD 60 Ca();
+%mod: alarm 221.07 do $ADD 60 Ca();
+
+// Burst 20
+%mod: alarm 226.04 do $ADD 60 Ca();
+%mod: alarm 226.05 do $ADD 60 Ca();
+%mod: alarm 226.06 do $ADD 60 Ca();
+%mod: alarm 226.07 do $ADD 60 Ca();
+
+// Burst 21
+%mod: alarm 231.04 do $ADD 60 Ca();
+%mod: alarm 231.05 do $ADD 60 Ca();
+%mod: alarm 231.06 do $ADD 60 Ca();
+%mod: alarm 231.07 do $ADD 60 Ca();
+
+// Burst 22
+%mod: alarm 236.04 do $ADD 60 Ca();
+%mod: alarm 236.05 do $ADD 60 Ca();
+%mod: alarm 236.06 do $ADD 60 Ca();
+%mod: alarm 236.07 do $ADD 60 Ca();
+
+// Burst 23
+%mod: alarm 241.04 do $ADD 60 Ca();
+%mod: alarm 241.05 do $ADD 60 Ca();
+%mod: alarm 241.06 do $ADD 60 Ca();
+%mod: alarm 241.07 do $ADD 60 Ca();
+
+// Burst 24
+%mod: alarm 246.04 do $ADD 60 Ca();
+%mod: alarm 246.05 do $ADD 60 Ca();
+%mod: alarm 246.06 do $ADD 60 Ca();
+%mod: alarm 246.07 do $ADD 60 Ca();
+
+// Burst 25
+%mod: alarm 251.04 do $ADD 60 Ca();
+%mod: alarm 251.05 do $ADD 60 Ca();
+%mod: alarm 251.06 do $ADD 60 Ca();
+%mod: alarm 251.07 do $ADD 60 Ca();
+
+
+// ---------------------
+// Train 3
+// starts 10 s after Train 2 ends
+// ---------------------
+
+// Burst 1
+%mod: alarm 261.07 do $ADD 60 Ca();
+%mod: alarm 261.08 do $ADD 60 Ca();
+%mod: alarm 261.09 do $ADD 60 Ca();
+%mod: alarm 261.10 do $ADD 60 Ca();
+
+// Burst 2
+%mod: alarm 266.07 do $ADD 60 Ca();
+%mod: alarm 266.08 do $ADD 60 Ca();
+%mod: alarm 266.09 do $ADD 60 Ca();
+%mod: alarm 266.10 do $ADD 60 Ca();
+
+// Burst 3
+%mod: alarm 271.07 do $ADD 60 Ca();
+%mod: alarm 271.08 do $ADD 60 Ca();
+%mod: alarm 271.09 do $ADD 60 Ca();
+%mod: alarm 271.10 do $ADD 60 Ca();
+
+// Burst 4
+%mod: alarm 276.07 do $ADD 60 Ca();
+%mod: alarm 276.08 do $ADD 60 Ca();
+%mod: alarm 276.09 do $ADD 60 Ca();
+%mod: alarm 276.10 do $ADD 60 Ca();
+
+// Burst 5
+%mod: alarm 281.07 do $ADD 60 Ca();
+%mod: alarm 281.08 do $ADD 60 Ca();
+%mod: alarm 281.09 do $ADD 60 Ca();
+%mod: alarm 281.10 do $ADD 60 Ca();
+
+// Burst 6
+%mod: alarm 286.07 do $ADD 60 Ca();
+%mod: alarm 286.08 do $ADD 60 Ca();
+%mod: alarm 286.09 do $ADD 60 Ca();
+%mod: alarm 286.10 do $ADD 60 Ca();
+
+// Burst 7
+%mod: alarm 291.07 do $ADD 60 Ca();
+%mod: alarm 291.08 do $ADD 60 Ca();
+%mod: alarm 291.09 do $ADD 60 Ca();
+%mod: alarm 291.10 do $ADD 60 Ca();
+
+// Burst 8
+%mod: alarm 296.07 do $ADD 60 Ca();
+%mod: alarm 296.08 do $ADD 60 Ca();
+%mod: alarm 296.09 do $ADD 60 Ca();
+%mod: alarm 296.10 do $ADD 60 Ca();
+
+// Burst 9
+%mod: alarm 301.07 do $ADD 60 Ca();
+%mod: alarm 301.08 do $ADD 60 Ca();
+%mod: alarm 301.09 do $ADD 60 Ca();
+%mod: alarm 301.10 do $ADD 60 Ca();
+
+// Burst 10
+%mod: alarm 306.07 do $ADD 60 Ca();
+%mod: alarm 306.08 do $ADD 60 Ca();
+%mod: alarm 306.09 do $ADD 60 Ca();
+%mod: alarm 306.10 do $ADD 60 Ca();
+
+// Burst 11
+%mod: alarm 311.07 do $ADD 60 Ca();
+%mod: alarm 311.08 do $ADD 60 Ca();
+%mod: alarm 311.09 do $ADD 60 Ca();
+%mod: alarm 311.10 do $ADD 60 Ca();
+
+// Burst 12
+%mod: alarm 316.07 do $ADD 60 Ca();
+%mod: alarm 316.08 do $ADD 60 Ca();
+%mod: alarm 316.09 do $ADD 60 Ca();
+%mod: alarm 316.10 do $ADD 60 Ca();
+
+// Burst 13
+%mod: alarm 321.07 do $ADD 60 Ca();
+%mod: alarm 321.08 do $ADD 60 Ca();
+%mod: alarm 321.09 do $ADD 60 Ca();
+%mod: alarm 321.10 do $ADD 60 Ca();
+
+// Burst 14
+%mod: alarm 326.07 do $ADD 60 Ca();
+%mod: alarm 326.08 do $ADD 60 Ca();
+%mod: alarm 326.09 do $ADD 60 Ca();
+%mod: alarm 326.10 do $ADD 60 Ca();
+
+// Burst 15
+%mod: alarm 331.07 do $ADD 60 Ca();
+%mod: alarm 331.08 do $ADD 60 Ca();
+%mod: alarm 331.09 do $ADD 60 Ca();
+%mod: alarm 331.10 do $ADD 60 Ca();
+
+// Burst 16
+%mod: alarm 336.07 do $ADD 60 Ca();
+%mod: alarm 336.08 do $ADD 60 Ca();
+%mod: alarm 336.09 do $ADD 60 Ca();
+%mod: alarm 336.10 do $ADD 60 Ca();
+
+// Burst 17
+%mod: alarm 341.07 do $ADD 60 Ca();
+%mod: alarm 341.08 do $ADD 60 Ca();
+%mod: alarm 341.09 do $ADD 60 Ca();
+%mod: alarm 341.10 do $ADD 60 Ca();
+
+// Burst 18
+%mod: alarm 346.07 do $ADD 60 Ca();
+%mod: alarm 346.08 do $ADD 60 Ca();
+%mod: alarm 346.09 do $ADD 60 Ca();
+%mod: alarm 346.10 do $ADD 60 Ca();
+
+// Burst 19
+%mod: alarm 351.07 do $ADD 60 Ca();
+%mod: alarm 351.08 do $ADD 60 Ca();
+%mod: alarm 351.09 do $ADD 60 Ca();
+%mod: alarm 351.10 do $ADD 60 Ca();
+
+// Burst 20
+%mod: alarm 356.07 do $ADD 60 Ca();
+%mod: alarm 356.08 do $ADD 60 Ca();
+%mod: alarm 356.09 do $ADD 60 Ca();
+%mod: alarm 356.10 do $ADD 60 Ca();
+
+// Burst 21
+%mod: alarm 361.07 do $ADD 60 Ca();
+%mod: alarm 361.08 do $ADD 60 Ca();
+%mod: alarm 361.09 do $ADD 60 Ca();
+%mod: alarm 361.10 do $ADD 60 Ca();
+
+// Burst 22
+%mod: alarm 366.07 do $ADD 60 Ca();
+%mod: alarm 366.08 do $ADD 60 Ca();
+%mod: alarm 366.09 do $ADD 60 Ca();
+%mod: alarm 366.10 do $ADD 60 Ca();
+
+// Burst 23
+%mod: alarm 371.07 do $ADD 60 Ca();
+%mod: alarm 371.08 do $ADD 60 Ca();
+%mod: alarm 371.09 do $ADD 60 Ca();
+%mod: alarm 371.10 do $ADD 60 Ca();
+
+// Burst 24
+%mod: alarm 376.07 do $ADD 60 Ca();
+%mod: alarm 376.08 do $ADD 60 Ca();
+%mod: alarm 376.09 do $ADD 60 Ca();
+%mod: alarm 376.10 do $ADD 60 Ca();
+
+// Burst 25
+%mod: alarm 381.07 do $ADD 60 Ca();
+%mod: alarm 381.08 do $ADD 60 Ca();
+%mod: alarm 381.09 do $ADD 60 Ca();
+%mod: alarm 381.10 do $ADD 60 Ca();
