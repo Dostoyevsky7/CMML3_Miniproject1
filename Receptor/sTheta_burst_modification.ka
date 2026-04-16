@@ -1,0 +1,409 @@
+// sTheta_burst_modification.ka
+// Calcium dependent cAMP activation
+
+%mod: Calcium_Levels > 10 do $UPDATE cAMP_synth 20; repeat [true]
+%mod: Calcium_Levels < 5 do $UPDATE cAMP_synth 0.5; repeat [true]
+
+// =====================================================
+// Spaced Theta Burst (sTheta)
+// 3 trains total
+// Each train = 25 bursts
+// Each burst = 4 pulses at 100 Hz
+// Burst onset every 200 ms
+// 600 s gap between trains
+// =====================================================
+
+// ---------------------
+// Train 1
+// ---------------------
+
+%mod: alarm 0.01 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.02 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.03 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.04 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 0.21 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.22 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.23 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.24 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 0.41 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.42 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.43 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.44 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 0.61 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.62 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.63 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.64 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 0.81 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.82 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.83 do $ADD 60*CaGlu Ca();
+%mod: alarm 0.84 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1.01 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.02 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.03 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.04 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1.21 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.22 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.23 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.24 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1.41 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.42 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.43 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.44 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1.61 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.62 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.63 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.64 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1.81 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.82 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.83 do $ADD 60*CaGlu Ca();
+%mod: alarm 1.84 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 2.01 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.02 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.03 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.04 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 2.21 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.22 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.23 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.24 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 2.41 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.42 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.43 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.44 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 2.61 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.62 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.63 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.64 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 2.81 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.82 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.83 do $ADD 60*CaGlu Ca();
+%mod: alarm 2.84 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 3.01 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.02 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.03 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.04 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 3.21 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.22 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.23 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.24 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 3.41 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.42 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.43 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.44 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 3.61 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.62 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.63 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.64 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 3.81 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.82 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.83 do $ADD 60*CaGlu Ca();
+%mod: alarm 3.84 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 4.01 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.02 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.03 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.04 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 4.21 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.22 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.23 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.24 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 4.41 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.42 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.43 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.44 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 4.61 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.62 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.63 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.64 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 4.81 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.82 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.83 do $ADD 60*CaGlu Ca();
+%mod: alarm 4.84 do $ADD 60*CaGlu Ca();
+
+
+// ---------------------
+// Train 2
+// starts 600 s after Train 1 ends
+// ---------------------
+
+%mod: alarm 604.84 do $ADD 60*CaGlu Ca();
+%mod: alarm 604.85 do $ADD 60*CaGlu Ca();
+%mod: alarm 604.86 do $ADD 60*CaGlu Ca();
+%mod: alarm 604.87 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 605.04 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.05 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.06 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.07 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 605.24 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.25 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.26 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.27 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 605.44 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.45 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.46 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.47 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 605.64 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.65 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.66 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.67 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 605.84 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.85 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.86 do $ADD 60*CaGlu Ca();
+%mod: alarm 605.87 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 606.04 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.05 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.06 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.07 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 606.24 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.25 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.26 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.27 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 606.44 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.45 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.46 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.47 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 606.64 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.65 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.66 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.67 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 606.84 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.85 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.86 do $ADD 60*CaGlu Ca();
+%mod: alarm 606.87 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 607.04 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.05 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.06 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.07 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 607.24 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.25 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.26 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.27 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 607.44 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.45 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.46 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.47 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 607.64 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.65 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.66 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.67 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 607.84 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.85 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.86 do $ADD 60*CaGlu Ca();
+%mod: alarm 607.87 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 608.04 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.05 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.06 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.07 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 608.24 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.25 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.26 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.27 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 608.44 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.45 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.46 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.47 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 608.64 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.65 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.66 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.67 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 608.84 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.85 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.86 do $ADD 60*CaGlu Ca();
+%mod: alarm 608.87 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 609.04 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.05 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.06 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.07 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 609.24 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.25 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.26 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.27 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 609.44 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.45 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.46 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.47 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 609.64 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.65 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.66 do $ADD 60*CaGlu Ca();
+%mod: alarm 609.67 do $ADD 60*CaGlu Ca();
+
+
+// ---------------------
+// Train 3
+// starts 600 s after Train 2 ends
+// ---------------------
+
+%mod: alarm 1209.67 do $ADD 60*CaGlu Ca();
+%mod: alarm 1209.68 do $ADD 60*CaGlu Ca();
+%mod: alarm 1209.69 do $ADD 60*CaGlu Ca();
+%mod: alarm 1209.70 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1209.87 do $ADD 60*CaGlu Ca();
+%mod: alarm 1209.88 do $ADD 60*CaGlu Ca();
+%mod: alarm 1209.89 do $ADD 60*CaGlu Ca();
+%mod: alarm 1209.90 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1260.07 do $ADD 60*CaGlu Ca();
+%mod: alarm 1260.08 do $ADD 60*CaGlu Ca();
+%mod: alarm 1260.09 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.10 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1210.27 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.28 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.29 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.30 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1210.47 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.48 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.49 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.50 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1210.67 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.68 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.69 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.70 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1210.87 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.88 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.89 do $ADD 60*CaGlu Ca();
+%mod: alarm 1210.90 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1211.07 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.08 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.09 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.10 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1211.27 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.28 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.29 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.30 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1211.47 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.48 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.49 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.50 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1211.67 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.68 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.69 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.70 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1211.87 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.88 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.89 do $ADD 60*CaGlu Ca();
+%mod: alarm 1211.90 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1212.07 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.08 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.09 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.10 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1212.27 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.28 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.29 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.30 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1212.47 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.48 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.49 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.50 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1212.67 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.68 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.69 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.70 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1212.87 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.88 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.89 do $ADD 60*CaGlu Ca();
+%mod: alarm 1212.90 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1213.07 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.08 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.09 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.10 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1213.27 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.28 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.29 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.30 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1213.47 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.48 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.49 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.50 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1213.67 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.68 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.69 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.70 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1213.87 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.88 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.89 do $ADD 60*CaGlu Ca();
+%mod: alarm 1213.90 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1214.07 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.08 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.09 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.10 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1214.27 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.28 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.29 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.30 do $ADD 60*CaGlu Ca();
+
+%mod: alarm 1214.47 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.48 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.49 do $ADD 60*CaGlu Ca();
+%mod: alarm 1214.50 do $ADD 60*CaGlu Ca();
+
+// Glutamate-triggered external input disabled for this calcium-only sTheta protocol
+// %mod: 'Glu_Trigger' > 0 do $ADD 5000 Glutamate();
+// %mod: 'Glu_Trigger' = 0 do $DEL |Glutamate()| Glutamate(); repeat [true]
