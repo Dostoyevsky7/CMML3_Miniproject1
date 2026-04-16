@@ -22,31 +22,31 @@ Where Agents.ka, Variables.ka, Rules.ka, Modification.ka, Observables.ka and 802
 Each protcol's modification files and time length used are as follows, which is the same in all 3 models:
 
 
-### 1. Theta Burst protocol
+### (1) Theta Burst protocol
 
 ```bash
 bin\KaSim.exe Agents.ka Variables.ka Rules.ka theta_burst_modification.ka Observables.ka 8020.ka -l 120 -o output_Theta_Burst_60.out
 ```
 
-### 2. compressed Theta Burst protocol
+### (2) compressed Theta Burst protocol
 
 ```bash
 bin\KaSim.exe Agents.ka Variables.ka Rules.ka cTheta_burst_modification.ka Observables.ka 8020.ka -l 180 -o output_cTheta_60.out
 ```
 
-### 3. spaced Theta Burst protocol
+### (3) spaced Theta Burst protocol
 
 ```bash
 bin\KaSim.exe Agents.ka Variables.ka Rules.ka sTheta_burst_modification.ka Observables.ka 8020.ka -l 1500 -o output_sTheta_60.out
 ```
 
-### 4. HFS protocol
+### (4) HFS protocol
 
 ```bash
 bin\KaSim.exe Agents.ka Variables.ka Rules.ka HFS_modification.ka Observables.ka 8020.ka -l 120 -o output_HFS_60.out
 ```
 
-### 5. weak LTP protocol
+### (5) weak LTP protocol
 
 ```bash
 bin\KaSim.exe Agents.ka Variables.ka Rules.ka weak_LTP_modification.ka Observables.ka 8020.ka -l 600 -o output_sTheta_60.out
@@ -59,4 +59,51 @@ The output of the Kasim is a `.out` file. Run the python script in each model's 
 
 ```bash
 python plot_kasim_single_output.py
+```
+
+Specifically, in the `plot_kasim_single_output.py`, the variable:
+
+
+```python
+input_file = "output_sTheta_60.out" 
+```
+
+could be changed into any of the `.out` files to get the results.
+
+The variable:
+```python
+label = "sTheta_60" 
+```
+would create a folder named "plots_sTheta_60", this variable could also be changed into any names wanted.
+
+The output of the script would be focus on variables including:
+```python
+input_vars = [
+    "Calcium_Levels",
+    "Glutamate_level",
+    "CaGlu",
+    "Glu_Trigger",
+]
+
+mechanism_vars = [
+    "Active_CaM",
+    "PP2B",
+    "cAMP_levels",
+    "PKA_a",
+    "Phos_CK_subunits",
+    "CaMKII_CaM",
+    "actPKC_level",
+]
+
+phenotype_vars = [
+    "Synaptic_receptors",
+    "AMPA_membrane",
+    "AMPA_PSD",
+    "Conductance_S845_measure",
+    "Conductance_S831_measure",
+    "S845_P",
+    "S845_PP",
+    "S831_P",
+    "S831_PP",
+]
 ```
