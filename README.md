@@ -20,11 +20,29 @@ Each protcol's modification files and time length used are as follows, which is 
 ## 1. Theta Burst protocol
 
 ```bash
-bin\KaSim.exe Agents.ka Variables.ka Rules.ka theta_burst_modification.ka Observables.ka 8020.ka -l 1500 -o output_sTheta_60.out
+bin\KaSim.exe Agents.ka Variables.ka Rules.ka theta_burst_modification.ka Observables.ka 8020.ka -l 120 -o output_Theta_Burst_60.out
 ```
 
 ## 2. compressed Theta Burst protocol
 
 ```bash
-bin\KaSim.exe Agents.ka Variables.ka Rules.ka theta_burst_modification.ka Observables.ka 8020.ka -l 1500 -o output_sTheta_60.out
+bin\KaSim.exe Agents.ka Variables.ka Rules.ka cTheta_burst_modification.ka Observables.ka 8020.ka -l 180 -o output_cTheta_60.out
+```
+
+## 3. spaced Theta Burst protocol
+
+```bash
+bin\KaSim.exe Agents.ka Variables.ka Rules.ka sTheta_burst_modification.ka Observables.ka 8020.ka -l 1500 -o output_sTheta_60.out
+```
+
+## 4. HFS protocol
+
+```bash
+bin\KaSim.exe Agents.ka Variables.ka Rules.ka HFS_modification.ka Observables.ka 8020.ka -l 120 -o output_HFS_60.out
+```
+
+## 5. weak LTP protocol
+
+```bash
+bin\KaSim.exe Agents.ka Variables.ka Rules.ka weak_LTP_modification.ka Observables.ka 8020.ka -l 600 -o output_sTheta_60.out
 ```
