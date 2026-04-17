@@ -8,28 +8,28 @@ plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['font.size'] = 10
 
 # =========================================================
-# 在这里改文件名
+# Change file names here
 # =========================================================
-input_file = "output_sTheta_60.out"   # 改成 output_HFS.out
-label = "sTheta60"                 # 改成 HFS
+input_file = "output_sTheta_60.out"   
+label = "sTheta_60"                 
 
-# 是否只看前多少秒；None 表示全程
+
 time_max = None
-# 例如想只看前10秒：time_max = 10
+# whole time course
 # =========================================================
 
 def read_kasim_out(path):
-    # 跳过前两行注释，第三行才是真正表头
+
     df = pd.read_csv(path, skiprows=2)
 
-    # 去掉列名两侧引号
+
     df.columns = [str(c).strip().strip('"') for c in df.columns]
 
-    # 统一时间列名
+
     if "[T]" in df.columns:
         df = df.rename(columns={"[T]": "T"})
     elif "T" not in df.columns:
-        raise ValueError(f"找不到时间列 T，当前列为: {df.columns.tolist()}")
+        raise ValueError(f"cannot find T，current columns: {df.columns.tolist()}")
 
     return df
 
@@ -68,13 +68,13 @@ def filter_vars(df, vars_list):
         if v in df.columns:
             keep.append(v)
         else:
-            print(f"[跳过] {v} 不存在")
+            print(f"[skip] {v} not exist")
     return keep
 
 def plot_group(df, vars_list, title, outfile):
     vars_list = filter_vars(df, vars_list)
     if len(vars_list) == 0:
-        print(f"{title} 没有可画变量")
+        print(f"{title} no ploatable variables")
         return
 
     n = len(vars_list)
@@ -97,7 +97,7 @@ def plot_group(df, vars_list, title, outfile):
 
     fig.suptitle(title)
     fig.tight_layout(rect=[0, 0, 1, 0.96])
-    fig.savefig(outfile, dpi=300)
+    fig.savefig(outfile.with_suffix(".pdf"), dpi=300)
     plt.close()
     print(f"Saved: {outfile}")
 
@@ -120,19 +120,18 @@ def plot_overlay(df, vars_list, title, outfile):
     plt.legend(fontsize=8, ncol=2)
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig(outfile, dpi=300)
+    plt.savefig(outfile.with_suffix(".pdf"), dpi=300)
     plt.close()
     print(f"Saved: {outfile}")
 
-# =========================
-# 主程序
-# =========================
+
+# main
 df = read_kasim_out(input_file)
 
 if time_max is not None:
     df = df[df["T"] <= time_max].copy()
 
-print("检测到列：")
+print("Columns detected：")
 print(df.columns.tolist())
 
 out_dir = Path(f"plots_{label}")
@@ -141,37 +140,37 @@ out_dir.mkdir(exist_ok=True)
 plot_group(
     df, input_vars,
     f"A. Input layer ({label})",
-    out_dir / f"A_input_{label}.pdf"
+    out_dir / f"A_input_{label}.png"
 )
 
 plot_group(
     df, mechanism_vars,
     f"B. Mechanism layer ({label})",
-    out_dir / f"B_mechanism_{label}.pdf"
+    out_dir / f"B_mechanism_{label}.png"
 )
 
 plot_group(
     df, phenotype_vars,
     f"C. Output phenotype ({label})",
-    out_dir / f"C_output_{label}.pdf"
+    out_dir / f"C_output_{label}.png"
 )
 
 plot_overlay(
     df, input_vars,
     f"A. Input ({label})",
-    out_dir / f"A_overlay_{label}.pdf"
+    out_dir / f"A_overlay_{label}.png"
 )
 
 plot_overlay(
     df, mechanism_vars,
     f"B. Mechanism ({label})",
-    out_dir / f"B_overlay_{label}.pdf"
+    out_dir / f"B_overlay_{label}.png"
 )
 
 plot_overlay(
     df, phenotype_vars,
     f"C. Output ({label})",
-    out_dir / f"C_overlay_{label}.pdf"
+    out_dir / f"C_overlay_{label}.png"
 )
 
-print("\n全部完成")
+print("\nDone")
